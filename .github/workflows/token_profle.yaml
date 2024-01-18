@@ -13,12 +13,12 @@ jobs:
 
     steps:
     - name: Set up Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v5
       with:
         go-version: 1.21
 
     - name: Check out code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Build
       run: go build -v ./...
@@ -27,7 +27,7 @@ jobs:
       run: go test -v ./...
 
     - name: Docker Login
-      uses: docker/login-action@v1
+      uses: docker/login-action@v3
       with:
         registry: 520291287938.dkr.ecr.us-east-1.amazonaws.com
         username: ${{ secrets.GHUB_ACTIONS_KEY_ID }}

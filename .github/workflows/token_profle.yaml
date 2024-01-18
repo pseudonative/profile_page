@@ -36,8 +36,8 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        IMAGE_URI=520291287938.dkr.ecr.us-east-1.amazonaws.com/devops-profile/tokenapp
-        IMAGE_TAG=${GITHUB_SHA::8} # This takes the first 8 characters of the commit SHA
+        IMAGE_URI=520291287938.dkr.ecr.us-east-1.amazonaws.com/devops-profile
+        IMAGE_TAG=${GITHUB_SHA::8} 
         docker build -t tokenapp .
         docker tag tokenapp $IMAGE_URI:$IMAGE_TAG
         docker push $IMAGE_URI:$IMAGE_TAG

@@ -29,7 +29,7 @@ jobs:
     - name: Cache Go Modules
       uses: actions/cache@v4
       with:
-        path: ~/go/pkg/mod   # This is the default location for Go modules cache
+        path: ~/go/pkg/mod   
         key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
         restore-keys: |
           ${{ runner.os }}-go-
@@ -45,8 +45,8 @@ jobs:
     - name: Build and push Docker image
       run: |
         docker build -t tokenapp .
-        docker tag tokenapp 520291287938.dkr.ecr.us-east-1.amazonaws.com/devops-profile:1.0.3
-        docker push 520291287938.dkr.ecr.us-east-1.amazonaws.com/devops-profile:1.0.3
+        docker tag tokenapp 520291287938.dkr.ecr.us-east-1.amazonaws.com/devops-profile:1.0.4
+        docker push 520291287938.dkr.ecr.us-east-1.amazonaws.com/devops-profile:1.0.4
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.GHUB_ACTIONS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.GHUB_ACTIONS_ACCESS_KEY }}
